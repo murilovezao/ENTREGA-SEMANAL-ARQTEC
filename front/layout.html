@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Imagens</title>
+    <link rel="stylesheet" href="layout.css">
+</head>
+<body>
+    
+    <main>
+        <div class="instrucoes">
+            <p>Caso você queira selecionar mais de uma imagem para editar, selecione-as via Ctrl, depois, clique em "Abrir"!</p>
+        </div>
+        <div class="card">
+            <button id="close-button" class="close-button">X</button>
+            <form id="upload_form">
+                <input type="file" id="file_imagem" class="file-upload" name="imagem" multiple>
+            </form>
+            <div id="image-container" class="image-container"></div>
+        </div>
+    </main>
+    
+    <!-- Modal para confirmação -->
+    <div id="confirm-modal" class="modal">
+        <div class="modal-content">
+            <span id="modal-close" class="modal-close">&times;</span>
+            <p>Você tem certeza de que deseja sair?</p>
+            <button id="modal-confirm" class="modal-button">Sim</button>
+            <button id="modal-cancel" class="modal-button cancel">Não</button>
+        </div>
+    </div>
+
+    <script src="layout.js"></script>
+</body>
+</html>

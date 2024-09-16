@@ -1,0 +1,189 @@
+*{
+    padding: 0;
+    margin: 0;
+
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section1{
+    background-color: rgb(255, 255, 255);
+    width: 45%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.section2{
+    background-color: rgb(185, 185, 185);
+    width: 65%;
+    height: 100vh;
+}
+
+
+.botoes{
+    background-color: rgb(34, 86, 197);
+    margin-bottom: 0px;
+    width: 20vw;
+    height: 8vh;
+    color: white;
+    border-color: white;
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link-botao {
+    text-decoration: none;
+    margin-top: 5.5px;
+}
+
+.link-botao:hover{
+    transform: scale(1.05);
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #bcb5c8;
+    background: url("imagens/fundo\ login.png") center center/cover;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-blend-mode: color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5vh;
+    color: white;
+    font-family: "Kanit", sans-serif;
+    font-weight: 100;
+}
+
+.textosobre{
+    width: 340px;
+    text-align: justify;
+}
+
+#footer{
+    margin-top: 30vh;
+    background-color: rgb(24, 96, 252);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336; /* Cor de fundo vermelha */
+    color: #fff; /* Texto branco */
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold; /* Negrito para o texto */
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 3; /* Garantir que o botão esteja sobre os outros elementos */
+}
+
+.close-button:hover {
+    background-color: #d32f2f; /* Cor de fundo vermelha mais escura ao passar o mouse */
+    transform: scale(1.20); /* Leve aumento de escala ao passar o mouse */
+}
+
+.close-button:focus {
+    outline: none; /* Remove o contorno padrão ao focar */
+}
+
+
+/* Estilos para o modal */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo escuro transparente */
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.3s;
+}
+
+.modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-button {
+    background-color: #4CAF50; /* Verde padrão */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+    background-color: #45a049;
+}
+
+.modal-button.cancel {
+    background-color: #f44336; /* Vermelho */
+}
+
+.modal-button.cancel:hover {
+    background-color: #d32f2f;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
