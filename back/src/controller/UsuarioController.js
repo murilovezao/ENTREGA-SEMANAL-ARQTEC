@@ -40,28 +40,57 @@ async function storeUsuario(request, response) {
 // LOGIN
 
 async function loginUsuario(request, response) {
-    const { email, senha } = request.body;
+    const params = [
+        request.body.email, 
+        request.body.senha
+    ];
 
-    const query = 'SELECT * FROM usuarios WHERE email = ? AND senha = ?';
-    const params = [email, senha];
+    const query = 'SELECT email,senha,id FROM usuarios WHERE email = ? AND senha = ?';
 
     connection.query(query, params, (err, results) => {
         if (results && results.length > 0) {
             response.status(200).json({
                 success: true,
                 message: "Login realizado com sucesso!",
-                data: results[0]
+                data: results
             });
         } else {
             response.status(401).json({
                 success: false,
-                message: "Credenciais inválidas!"
+                message: "Credenciais inválidas!",
+                data: err
             });
         }
     });
 }
 
+async function getUser(request, response) {
+
+    const params = Array (
+        request.params.id
+    )
+
+    const query = "SELECT email, senha FROM usuarios WHERE id = ?"
+
+    connection.query(query, params, (err, results) => {
+        if (results) {
+            response.status(201).json({
+                success: true,
+                message: "Sucesso",
+                data: results
+            })
+        } else {
+            response.status(404).json({
+                success: false,
+                message: "Não encontrado",
+                data: err
+            })
+        }
+    })
+}
+
 module.exports = {
     storeUsuario,
-    loginUsuario
+    loginUsuario,
+    getUser
 };

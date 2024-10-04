@@ -19,7 +19,7 @@ criarconta.onclick = async function() {
 
     let data = { email, senha };
 
-    const response = await fetch('http://localhost:3001/api/store/usuario', {
+    const response = await fetch('http://localhost:3006/api/store/usuario', {
         method: 'POST',
         headers: { 'Content-type': 'application/json;charset=UTF-8' },
         body: JSON.stringify(data)
