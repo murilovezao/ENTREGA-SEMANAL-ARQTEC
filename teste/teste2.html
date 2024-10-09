@@ -3,17 +3,10 @@
 
 <head>
     <title>
-        How to take screenshot of
-        a div using JavaScript?
+        How to take screenshot of a div using JavaScript?
     </title>
 
-    <!-- Include from the CDN -->
-    <script src=
-"https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
-    </script>
-
-    <!-- Include locally otherwise -->
-    <!-- <script src='html2canvas.js'></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
 
     <style>
         #photo {
@@ -26,45 +19,34 @@
 <body>
     <div id="photo">
         <h1>GeeksforGeeks</h1>
-        Hello everyone! This is a
-        trial page for taking a
-        screenshot.
+        Hello everyone! This is a trial page for taking a screenshot.
         <br><br>
         This is a dummy button!
         <button> Dummy</button>
         <br><br>
-        Click the button below to
-        take a screenshot of the div.
+        Click the button below to take a screenshot of the div.
         <br><br>
-
-        <!-- Define the button 
-        that will be used to 
-        take the screenshot -->
-        <button onclick="takeshot()">
-            Take Screenshot
-        </button>
+        <button onclick="takeshot()">Take Screenshot</button>
     </div>
     <h1>Screenshot:</h1>
     <div id="output"></div>
 
     <script type="text/javascript">
-
-        // Define the function 
-        // to screenshot the div
         function takeshot() {
-            let div =
-                document.getElementById('photo');
+            let div = document.getElementById('photo');
 
-            // Use the html2canvas
-            // function to take a screenshot
-            // and append it
-            // to the output div
-            html2canvas(div).then(
-                function (canvas) {
-                    document
-                    .getElementById('output')
-                    .appendChild(canvas);
-                })
+            html2canvas(div).then(function (canvas) {
+                // Append the canvas to the output div
+                document.getElementById('output').appendChild(canvas);
+
+                // Convert the canvas to a data URL and create a link
+                canvas.toBlob(function (blob) {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'screenshot.png'; // Define o nome do arquivo
+                    link.click(); // Simula o clique no link para iniciar o download
+                });
+            });
         }
     </script>
 </body>
