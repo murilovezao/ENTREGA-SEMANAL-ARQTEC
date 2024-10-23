@@ -10,10 +10,10 @@ const { storeImagem } = require('../controller/imagemController');
 * @swagger
 * /store/imagem:
 *   get:
-*     summary: Retorna todas as tarefas
+*     summary: Armazena as imagens
 *     responses:
 *       200:
-*         description: Uma lista de tarefas
+*         description: Recebe imagens e armazena no banco de dados
 *         content:
 *           application/json:
 *             schema:

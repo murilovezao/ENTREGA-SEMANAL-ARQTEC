@@ -11,7 +11,7 @@ router.post('/store/usuario', storeUsuario);
 *     summary: Armazenamento dos usuarios
 *     responses:
 *       200:
-*         description: Lista dos usuários cadastrados no site
+*         description: Lista dos usuários e suas informações cadastrados no site
 *         content:
 *           application/json:
 *             schema:
