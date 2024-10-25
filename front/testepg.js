@@ -22,9 +22,27 @@ function takeshot() {
         context.clearRect(0, 0, myCanvas.width, myCanvas.height);
         context.drawImage(canvas, 0, 0);
 
+
+
+        var image = new Image();
+        image.crossOrigin = "anonymous";  // This enables CORS
+        image.onload = function (event) {
+            console.log('here')
+            try {
+                // canvas.drawImage(image, 0, 0, 200, 200);
+                // button.download = "cat.png";
+                // button.href = canvas.canvas.toDataURL();   
+            console.log(canvas.toDataURL('image/png'))
+                  
+            } catch (e) {
+                alert(e);
+            }
+        };
+
+
         // Cria um link para download
         const link = document.createElement('a');
-        link.href = canvas.toDataURL('image/png');
+        // link.href = canvas.toDataURL('image/png');
         link.download = 'screenshot.png'; // Nome do arquivo
         link.click(); // Simula o clique no link para iniciar o download
     });
