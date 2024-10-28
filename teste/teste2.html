@@ -1,54 +1,31 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>
-        How to take screenshot of a div using JavaScript?
-    </title>
-
-    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"></script>
-
-    <style>
-        #photo {
-            border: 4px solid green;
-            padding: 4px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body>
-    <div id="photo">
-        <h1>GeeksforGeeks</h1>
-        Hello everyone! This is a trial page for taking a screenshot.
-        <br><br>
-        This is a dummy button!
-        <button> Dummy</button>
-        <br><br>
-        Click the button below to take a screenshot of the div.
-        <br><br>
-        <button onclick="takeshot()">Take Screenshot</button>
-    </div>
-    <h1>Screenshot:</h1>
-    <div id="output"></div>
+  <div class="Content">
+    <h1>Título do texto</h1>
 
-    <script type="text/javascript">
-        function takeshot() {
-            let div = document.getElementById('photo');
+    <h2>Sub Título de exemplo para um vídeo no YouTube</h2>
 
-            html2canvas(div).then(function (canvas) {
-                // Append the canvas to the output div
-                document.getElementById('output').appendChild(canvas);
+    <p>Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, 
+      e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma 
+      bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. 
+      Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a 
+      editoração eletrônica, permanecendo essencialmente inalterado. 
+      Se popularizou na década de 60, quando a Letraset lançou decalques 
+      contendo passagens de Lorem Ipsum, e mais recentemente quando passou 
+      a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+    </p>
+  </div>
+  
+  <button onclick="downloadPDF()" >Download</button>
 
-                // Convert the canvas to a data URL and create a link
-                canvas.toBlob(function (blob) {
-                    const link = document.createElement('a');
-                    link.href = URL.createObjectURL(blob);
-                    link.download = 'screenshot.png'; // Define o nome do arquivo
-                    link.click(); // Simula o clique no link para iniciar o download
-                });
-            });
-        }
-    </script>
+  <script src="teste2.js"></script>
 </body>
-
 </html>

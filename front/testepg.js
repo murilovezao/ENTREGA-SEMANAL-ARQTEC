@@ -9,44 +9,6 @@ function hideComment() {
     document.getElementById("comment-container").style.display = "none";
 }
 
-// Função para capturar uma imagem do div
-function takeshot() {
-    let div = document.getElementById('photo');
-
-    html2canvas(div).then(function(canvas) {
-        // Enviar a captura para o canvas
-        const myCanvas = document.getElementById('myCanvas');
-        const context = myCanvas.getContext('2d');
-        myCanvas.width = canvas.width;
-        myCanvas.height = canvas.height;
-        context.clearRect(0, 0, myCanvas.width, myCanvas.height);
-        context.drawImage(canvas, 0, 0);
-
-
-
-        var image = new Image();
-        image.crossOrigin = "anonymous";  // This enables CORS
-        image.onload = function (event) {
-            console.log('here')
-            try {
-                // canvas.drawImage(image, 0, 0, 200, 200);
-                // button.download = "cat.png";
-                // button.href = canvas.canvas.toDataURL();   
-            console.log(canvas.toDataURL('image/png'))
-                  
-            } catch (e) {
-                alert(e);
-            }
-        };
-
-
-        // Cria um link para download
-        const link = document.createElement('a');
-        // link.href = canvas.toDataURL('image/png');
-        link.download = 'screenshot.png'; // Nome do arquivo
-        link.click(); // Simula o clique no link para iniciar o download
-    });
-}
 
 // Variável para rastrear se o canvas está ativado
 let canvasActivated = false;
@@ -133,3 +95,18 @@ window.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.image').setAttribute('src', decodeURIComponent(imageData));
     }
 });
+
+
+function downloadPDF() {
+    const item = document.getElementById(".card");
+    console.log("fodase")
+  
+    var opt = {
+      margin: 1,
+      filename: "myfile.pdf",
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+    };
+  
+    html2pdf().set(opt).from(item).save();
+}
