@@ -22,11 +22,9 @@
         <img src="./imagens/arqteste.avif" alt="Imagem" class="image">
         <div class="buttons">
             <button onclick="toggleComment()"><img src="./imagens/caixatext.png" alt="Botão 1"></button>
-            <button class="canvas-buttons" onclick="toggleCanvas()"><img src="./imagens/canetaicone.png"
-                    alt="Botão 2"></button>
-            <button onclick="downloadPDF()">Download</button>
-            <button onclick="handleButton4Click()"><img src="imagens/setasair.png" alt="Botão 4"></button>
-        </div>
+            <button class="canvas-buttons" onclick="toggleCanvas()"><img src="./imagens/canetaicone.png"alt="Botão 2"></button>
+            <button id="downloadBtn">Salvar Página como Imagem</button>
+            <button onclick="handleButton4Click()"><img src="imagens/setasair.png" alt="Botão 4"></button></div>
         <div id="comment-container" style="display: none;">
             <textarea id="comment-input" placeholder="Adicione um comentário"></textarea>
             <button id="comment-submit" onclick="hideComment()">Ocultar Comentário</button>

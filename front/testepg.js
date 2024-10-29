@@ -93,20 +93,25 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (imageData) {
         document.querySelector('.image').setAttribute('src', decodeURIComponent(imageData));
+
+        
     }
+    
 });
 
 
-function downloadPDF() {
-    const item = document.getElementById(".card");
-    console.log("fodase")
-  
-    var opt = {
-      margin: 1,
-      filename: "myfile.pdf",
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
-    };
-  
-    html2pdf().set(opt).from(item).save();
+// Função para realizar o download da imagem
+function downloadImage() {
+  const image = canvas.toDataURL('image/png'); // Gera a URL da imagem no formato PNG
+
+  const link = document.createElement('a'); // Cria um link dinamicamente
+  link.href = image;
+  link.download = 'imagem-editada.png'; // Define o nome do arquivo
+  link.click(); // Simula o clique no link
 }
+
+// Botão para acionar o download
+document.getElementById('downloadBtn').addEventListener('click', downloadImage);
+
+
+
