@@ -23,13 +23,18 @@
         <div class="buttons">
             <button onclick="toggleComment()"><img src="./imagens/caixatext.png" alt="Botão 1"></button>
             <button class="canvas-buttons" onclick="toggleCanvas()"><img src="./imagens/canetaicone.png"alt="Botão 2"></button>
-            <button id="downloadBtn">Salvar Página como Imagem</button>
+            <button class="canvas-buttons" id="captureButton"><img src="./imagens/compartilhar.png"alt="Botão 3"></button>
             <button onclick="handleButton4Click()"><img src="imagens/setasair.png" alt="Botão 4"></button></div>
-        <div id="comment-container" style="display: none;">
+            <div id="comment-container" style="display: none;">
             <textarea id="comment-input" placeholder="Adicione um comentário"></textarea>
             <button id="comment-submit" onclick="hideComment()">Ocultar Comentário</button>
         </div>
     </div>
+    <div id="overlay"></div>
+<div id="modal">
+  <p>Pressione <strong>Windows + Shift + S</strong> para capturar a tela.</p>
+  <button id="closeModal">Fechar</button>
+</div>
     <canvas id="myCanvas" crossorigin="anonymous"></canvas>
 </body>
 

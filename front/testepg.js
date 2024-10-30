@@ -99,19 +99,39 @@ window.addEventListener('DOMContentLoaded', () => {
     
 });
 
+const captureButton = document.getElementById('captureButton');
+  const modal = document.getElementById('modal');
+  const overlay = document.getElementById('overlay');
+  const closeModal = document.getElementById('closeModal');
 
-// Função para realizar o download da imagem
-function downloadImage() {
-  const image = canvas.toDataURL('image/png'); // Gera a URL da imagem no formato PNG
+  captureButton.addEventListener('click', () => {
+    modal.style.display = 'block';
+    overlay.style.display = 'block';
+  });
 
-  const link = document.createElement('a'); // Cria um link dinamicamente
-  link.href = image;
-  link.download = 'imagem-editada.png'; // Define o nome do arquivo
-  link.click(); // Simula o clique no link
-}
+  closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  });
 
-// Botão para acionar o download
-document.getElementById('downloadBtn').addEventListener('click', downloadImage);
+  overlay.addEventListener('click', () => {
+    modal.style.display = 'none';
+    overlay.style.display = 'none';
+  });
+
+
+// // Função para realizar o download da imagem
+// function downloadImage() {
+//   const image = canvas.toDataURL('image/png'); // Gera a URL da imagem no formato PNG
+
+//   const link = document.createElement('a'); // Cria um link dinamicamente
+//   link.href = image;
+//   link.download = 'imagem-editada.png'; // Define o nome do arquivo
+//   link.click(); // Simula o clique no link
+// }
+
+// // Botão para acionar o download
+// document.getElementById('downloadBtn').addEventListener('click', downloadImage);
 
 
 
