@@ -87,9 +87,8 @@ function handleButton4Click() {
 
 // Função executada quando o DOM é carregado
 window.addEventListener('DOMContentLoaded', () => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const imageData = urlParams.get('image');
+ 
+    const imageData = localStorage.getItem("imagem")
 
     if (imageData) {
         document.querySelector('.image').setAttribute('src', decodeURIComponent(imageData));
@@ -99,25 +98,35 @@ window.addEventListener('DOMContentLoaded', () => {
     
 });
 
-const captureButton = document.getElementById('captureButton');
-  const modal = document.getElementById('modal');
-  const overlay = document.getElementById('overlay');
-  const closeModal = document.getElementById('closeModal');
+function salvarComoImagem() {
+    const conteudo = document.getElementById("FDS");
+    html2canvas(FDS).then((canvas) => {
+        const link = document.createElement("a");
+        link.href = canvas.toDataURL("image/png");
+        link.download = "pagina_como_imagem.png";
+        link.click();
+    });
+}
 
-  captureButton.addEventListener('click', () => {
-    modal.style.display = 'block';
-    overlay.style.display = 'block';
-  });
+// const captureButton = document.getElementById('captureButton');
+//   const modal = document.getElementById('modal');
+//   const overlay = document.getElementById('overlay');
+//   const closeModal = document.getElementById('closeModal');
 
-  closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
-  });
+//   captureButton.addEventListener('click', () => {
+//     modal.style.display = 'block';
+//     overlay.style.display = 'block';
+//   });
 
-  overlay.addEventListener('click', () => {
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
-  });
+//   closeModal.addEventListener('click', () => {
+//     modal.style.display = 'none';
+//     overlay.style.display = 'none';
+//   });
+
+//   overlay.addEventListener('click', () => {
+//     modal.style.display = 'none';
+//     overlay.style.display = 'none';
+//   });
 
 
 // // Função para realizar o download da imagem

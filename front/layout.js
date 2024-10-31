@@ -90,7 +90,8 @@ function renderImages(images) {
 
         // Define o comportamento ao clicar na imagem
         img.addEventListener('click', function() {
-            window.location.href = 'testepg.html?image=' + encodeURIComponent(image.src);
+            localStorage.setItem("imagem", encodeURIComponent(image.src));
+            window.location.href = 'testepg.html';
         });
     });
 }
